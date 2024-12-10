@@ -1,0 +1,29 @@
+### PRODUCTS GET ###
+GET http://localhost:3000/api/users HTTP/1.1
+
+### PRODUCTS GET BY ID###
+
+GET http://localhost:3000/api/users/3 HTTP/1.1
+content-type: application/json
+
+### PRODUCTS POST ###
+POST http://localhost:3000/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Hector",
+    "email": "hector@outlook.com"
+}
+
+### PRODUCTS PUT ###
+PUT http://localhost:3000/api/users/122 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Roberto",
+    "email": "ing_roca@outlook.com"
+}
+
+### PRODUCTS DELETE ###
+DELETE http://localhost:3000/api/users/1 HTTP/1.1
+content-type: application/json
