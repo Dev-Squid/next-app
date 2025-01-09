@@ -1,22 +1,17 @@
 import Link from "next/link";
 import ProductCard from "./components/ProductCard";
+import { getServerSession } from "next-auth";
+import { authOption } from "./api/auth/[...nextauth]/route";
 
-interface User {
-  id: number;
-  name: string;
-}
+export default async function Home() {
 
-const UsersPage = async () => {
-  const response = await fetch('https://jsonplaceholder.typicode.com/users');
-  const users: User[] =await response.json();
+  const session = await getServerSession(authOption)
 
   return (
-    <>
-      <h1>Hello World!</h1>
+    <main>
+      <h1>Hello { session && <span> {session.user?.name}</span>}</h1>
       <Link href="/users">Users</Link>
       <ProductCard />
-    </>
+    </main>
   ) 
 }
-
-export default UsersPage
